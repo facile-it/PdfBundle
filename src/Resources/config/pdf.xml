@@ -62,7 +62,7 @@
     		<argument id="ps_pdf.facade_builder" type="service" />
     		<argument id="annotation_reader" type="service" />
     		<argument id="ps_pdf.reflection_factory" type="service" />
-    		<argument id="templating" type="service" />
+            <argument id="twig" type="service" />
     		<argument id="ps_pdf.cache" type="service" />
     	</service>
 

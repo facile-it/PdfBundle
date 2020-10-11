@@ -17,7 +17,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
 use Symfony\Component\HttpKernel\Event\FilterResponseEvent;
-use Symfony\Component\Templating\EngineInterface;
+use Twig\Environment as Engine;
 
 /**
  * This listener will replace reponse content by pdf document's content if Pdf annotations is found.
@@ -33,7 +33,7 @@ class PdfListener
     private $templatingEngine;
     private $cache;
 
-    public function __construct(FacadeBuilder $pdfFacadeBuilder, Reader $annotationReader, Factory $reflectionFactory, EngineInterface $templatingEngine, Cache $cache)
+    public function __construct(FacadeBuilder $pdfFacadeBuilder, Reader $annotationReader, Factory $reflectionFactory, Engine $templatingEngine, Cache $cache)
     {
         $this->pdfFacadeBuilder = $pdfFacadeBuilder;
         $this->annotationReader = $annotationReader;

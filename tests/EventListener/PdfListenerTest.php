@@ -16,7 +16,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
 use Symfony\Component\HttpKernel\Event\FilterResponseEvent;
-use Symfony\Component\Templating\EngineInterface;
+use Twig\Environment as Engine;
 
 class PdfListenerTest extends TestCase
 {
@@ -43,7 +43,8 @@ class PdfListenerTest extends TestCase
                                 ->setMethods(['render'])
                                 ->getMock();
 
-        $this->templatingEngine = $this->getMockBuilder(EngineInterface::class)
+        $this->templatingEngine = $this->getMockBuilder(Engine::class)
+                                       ->disableOriginalConstructor()
                                        ->setMethods(['render', 'supports', 'exists'])
                                        ->getMock();
 
